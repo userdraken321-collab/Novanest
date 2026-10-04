@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaNest Interiors - Spaces Designed Around You</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-brown: #7a4620;
+      --accent-brown: #c4804d;
+      --dark-text: #2a2420;
+      --muted-text: #6b5d54;
+      --light-bg: #f5ede4;
+      --cream-bg: #faf6f0;
+      --border-light: rgba(180, 160, 150, 0.2);
+      --border-medium: rgba(180, 160, 150, 0.35);
+      --border-dark: rgba(180, 160, 150, 0.5);
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--dark-text);
+      line-height: 1.6;
+      background: #faf6f0;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, #2a2420 0%, #3a3430 100%);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 128, 77, 0.2);
+      padding: 18px 64px;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #f5ede4;
+      text-decoration: none;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #d4b5a0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      color: #c4804d;
+    }
+
+    .nav-cta {
+      padding: 11px 22px;
+      background: linear-gradient(135deg, #c4804d 0%, #a0643f 100%);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(196, 128, 77, 0.3);
+    }
+
+    .nav-cta:hover {
+      background: linear-gradient(135deg, #d4905f 0%, #b07450 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(196, 128, 77, 0.4);
+    }
+
+    /* Body padding for fixed nav */
+    main {
+      padding-top: 68px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #faf6f0 0%, #f0e6d8 100%);
+      border-bottom: 1px solid var(--border-light);
+      padding: 64px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      line-height: 1.14;
+      margin: 24px 0;
+      letter-spacing: -0.022em;
+    }
+
+    .hero-content h1 em {
+      font-style: italic;
+      color: var(--primary-brown);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border: 1px solid var(--border-medium);
+      border-radius: 8px;
+      padding: 7px 15px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: var(--muted-text);
+      margin-bottom: 24px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--accent-brown);
+      border-radius: 50%;
+    }
+
+    .hero-description {
+      font-size: 18px;
+      line-height: 1.625;
+      color: var(--muted-text);
+      margin: 24px 0;
+      letter-spacing: -0.001em;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 25px;
+      padding-top: 25px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .metric {
+      text-align: left;
+    }
+
+    .metric-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      line-height: 1.36;
+      font-weight: 600;
+      color: var(--dark-text);
+    }
+
+    .metric-label {
+      font-size: 13px;
+      color: var(--muted-text);
+      margin-top: 2px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      padding: 15.5px 28px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.96px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--primary-brown);
+      color: white;
+      box-shadow: 0 2px 8px rgba(122, 70, 32, 0.15);
+    }
+
+    .btn-primary:hover {
+      background: #663817;
+      box-shadow: 0 4px 12px rgba(122, 70, 32, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--dark-text);
+      border: 1.5px solid var(--muted-text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .btn-secondary:hover {
+      background: var(--cream-bg);
+      border-color: var(--primary-brown);
+      color: var(--primary-brown);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .btn {
+      cursor: pointer;
+    }
+
+    .hero-image {
+      background: linear-gradient(135deg, #e8dccf 0%, #d9c9b8 100%);
+      border: 1px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 0;
+      height: 563px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image img,
+    .hero-image svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-image-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(50, 48, 45, 0.8), transparent);
+      color: white;
+      padding: 24px;
+    }
+
+    /* Sections */
+    .section {
+      border-bottom: 1px solid var(--border-light);
+      padding: 64px;
+    }
+
+    .section-light {
+      background: var(--light-bg);
+    }
+
+    .section-cream {
+      background: var(--cream-bg);
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 672px;
+      margin: 0 auto 48px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--accent-brown);
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: var(--muted-text);
+      line-height: 1.6;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 33px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--border-medium);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--accent-brown) 0%, var(--primary-brown) 100%);
+      border: 1px solid rgba(196, 128, 77, 0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: white;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      line-height: 1.36;
+      margin-top: 5px;
+    }
+
+    .service-card p {
+      font-size: 15px;
+      color: var(--muted-text);
+      line-height: 1.63;
+    }
+
+    .service-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.55px;
+      text-transform: uppercase;
+      color: #6c5c4a;
+    }
+
+    /* Portfolio Grid */
+    .portfolio-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .portfolio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .portfolio-filters {
+      display: flex;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: #e7e1dc;
+      color: var(--dark-text);
+    }
+
+    .filter-btn.active {
+      background: var(--dark-text);
+      color: var(--cream-bg);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .project-card {
+      background: var(--cream-bg);
+      border: 1px solid var(--border-medium);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .project-image {
+      height: 225px;
+      background: linear-gradient(135deg, #e8dccf 0%, #d9c9b8 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-image img,
+    .project-image svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-category {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(255, 248, 243, 0.9);
+      backdrop-filter: blur(2px);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--dark-text);
+      text-transform: uppercase;
+    }
+
+    .project-info {
+      padding: 24px;
+    }
+
+    .project-location {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.55px;
+      text-transform: uppercase;
+      color: var(--primary-brown);
+      margin-bottom: 8px;
+    }
+
+    .project-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      line-height: 1.36;
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--muted-text);
+      line-height: 1.54;
+    }
+
+    /* Process Timeline */
+    .timeline-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .timeline-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+    }
+
+    .timeline-step {
+      background: var(--cream-bg);
+      border: 1px solid var(--border-medium);
+      border-radius: 12px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .step-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--accent-brown) 0%, var(--primary-brown) 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .step-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      line-height: 1.27;
+      color: #8b4e30;
+      letter-spacing: -0.015em;
+    }
+
+    .step-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      line-height: 1.44;
+    }
+
+    .step-desc {
+      font-size: 13px;
+      color: var(--muted-text);
+      line-height: 1.54;
+    }
+
+    /* Value Pillars */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .pillar-card {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 25px;
+      display: flex;
+      gap: 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--border-medium);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--accent-brown) 0%, var(--primary-brown) 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .pillar-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      line-height: 1.36;
+      margin-bottom: 4px;
+    }
+
+    .pillar-content p {
+      font-size: 13px;
+      color: var(--muted-text);
+      line-height: 1.54;
+    }
+
+    /* Testimonials */
+    .testimonials-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .testimonial-card {
+      background: var(--cream-bg);
+      border: 1px solid var(--border-medium);
+      border-radius: 12px;
+      padding: 33px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stars {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 15px;
+    }
+
+    .star {
+      color: var(--primary-brown);
+      font-size: 12px;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--dark-text);
+      line-height: 1.63;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-author {
+      border-top: 1px solid var(--border-light);
+      padding-top: 17px;
+    }
+
+    .author-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      line-height: 1.44;
+      margin-bottom: 4px;
+    }
+
+    .author-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: var(--muted-text);
+    }
+
+    /* CTA Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, #f5ede4 0%, #eae0d3 100%);
+      border-bottom: 1px solid var(--border-light);
+      padding: 64px;
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      margin-bottom: 24px;
+    }
+
+    .cta-banner p {
+      font-size: 18px;
+      color: var(--muted-text);
+      max-width: 576px;
+      margin: 0 auto 24px;
+      line-height: 1.56;
+      letter-spacing: -0.001em;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      border-bottom: 1px solid var(--border-light);
+      padding: 64px;
+    }
+
+    .contact-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+    }
+
+    .contact-studio-image {
+      background: linear-gradient(135deg, #e8dccf 0%, #d9c9b8 100%);
+      border: 1px solid var(--border-dark);
+      border-radius: 12px;
+      height: 380px;
+      overflow: hidden;
+      display: none;
+    }
+
+    .contact-studio-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contact-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      margin: 12px 0 32px;
+    }
+
+    .contact-details {
+      border-top: 1px solid var(--border-medium);
+      padding-top: 17px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .detail-item {
+      display: flex;
+      gap: 16px;
+    }
+
+    .detail-icon {
+      width: 19px;
+      height: 19px;
+      flex-shrink: 0;
+    }
+
+    .detail-content h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      line-height: 1.44;
+      margin-bottom: 2px;
+    }
+
+    .detail-content p {
+      font-size: 13px;
+      color: var(--muted-text);
+      line-height: 1.54;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: var(--light-bg);
+      border: 1px solid var(--border-medium);
+      border-radius: 12px;
+      padding: 41px;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .form-row-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .form-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.96px;
+      text-transform: uppercase;
+      color: var(--dark-text);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 15px 17px;
+      border: 1px solid var(--border-dark);
+      border-radius: 8px;
+      background: var(--cream-bg);
+      font-family: 'Nimbus Sans', sans-serif;
+      font-size: 15px;
+      color: var(--dark-text);
+      transition: all 0.3s ease;
+    }
+
+    .form-input::placeholder,
+    .form-select,
+    .form-textarea::placeholder {
+      color: #85736c;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--primary-brown);
+      background: white;
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+      padding: 17px;
+    }
+
+    .form-radio {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .form-radio input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .form-radio input[type="radio"]:checked {
+      accent-color: var(--primary-brown);
+    }
+
+    .form-radio label {
+      font-size: 13px;
+      color: var(--dark-text);
+      cursor: pointer;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--primary-brown);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.96px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-submit:hover {
+      background: #7a3e25;
+    }
+
+    /* Submission confirmation */
+    .form-success { display: none; text-align: center; padding: 24px 8px; }
+    .success-check { width: 64px; height: 64px; margin: 0 auto 16px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-brown), var(--primary-brown)); color: #fff; font-size: 32px; line-height: 64px; }
+    .success-title { font-family: 'Playfair Display', serif; font-size: 28px; line-height: 1.2; margin-bottom: 8px; }
+    .success-text { font-size: 15px; color: var(--muted-text); margin-bottom: 24px; }
+    .ref-box { background: white; border: 1px dashed var(--accent-brown); border-radius: 12px; padding: 20px; margin: 0 auto 16px; max-width: 420px; }
+    .ref-label { font-size: 11px; font-weight: 600; letter-spacing: 1.1px; text-transform: uppercase; color: var(--muted-text); margin-bottom: 6px; }
+    .ref-id { font-family: 'Courier New', monospace; font-size: 26px; font-weight: 700; letter-spacing: 2px; color: var(--primary-brown); margin-bottom: 12px; word-break: break-all; user-select: all; }
+    .ref-copy { padding: 8px 18px; border-radius: 6px; border: 1px solid var(--primary-brown); background: transparent; color: var(--primary-brown); font-size: 11px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; }
+    .ref-copy:hover { background: var(--primary-brown); color: #fff; }
+    .success-note { font-size: 13px; color: var(--muted-text); max-width: 420px; margin: 0 auto 20px; }
+    .btn-link { background: none; border: none; color: var(--primary-brown); font-size: 12px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; text-decoration: underline; cursor: pointer; }
+    .form-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+
+    /* Success/Error Messages */
+    .form-message {
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      text-align: center;
+      font-size: 14px;
+      display: none;
+    }
+
+    .form-message.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .form-message.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      nav {
+        padding: 14px 32px;
+      }
+
+      .nav-center {
+        gap: 24px;
+      }
+
+      .nav-link {
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .projects-grid,
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .timeline-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 12px 20px;
+      }
+
+      .nav-logo {
+        font-size: 13px;
+      }
+
+      .nav-center {
+        gap: 16px;
+      }
+
+      .nav-link {
+        font-size: 10px;
+      }
+
+      .nav-cta {
+        padding: 8px 14px;
+        font-size: 10px;
+      }
+
+      .hero,
+      .section,
+      .cta-banner,
+      .contact-section {
+        padding: 32px;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .section-heading {
+        font-size: 28px;
+      }
+
+      .services-grid,
+      .projects-grid,
+      .pillars-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row,
+      .form-row-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 12px;
+        padding: 10px 16px;
+      }
+
+      .nav-center {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .nav-link {
+        font-size: 9px;
+      }
+
+      main {
+        padding-top: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#hero" class="nav-logo">NovaNest</a>
+    <div class="nav-center">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="#process" class="nav-link">Process</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#testimonials" class="nav-link">Testimonials</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Consult Now</button>
+  </nav>
+
+  <main>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span>RESIDENTIAL • COMMERCIAL • TURNKEY INTERIORS</span>
+        </div>
+        <h1>Spaces Designed<br><em>Around You.</em></h1>
+        <p class="hero-description">
+          Based in Chennai, NovaNest Interiors curates quiet, tactile, and architecturally poised living and working spaces. From bespoke residences along ECR to modern urban duplexes in Anna Nagar.
+        </p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Get a Free Consultation</button>
+          <button class="btn btn-secondary" onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })">Explore Our Projects →</button>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric">
+            <div class="metric-value">350+</div>
+            <div class="metric-label">Completed Spaces</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">12+</div>
+            <div class="metric-label">Years of Heritage</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">100%</div>
+            <div class="metric-label">Turnkey Execution</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="The Coastal Sanctuary - Featured Residence" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="hero-image-label">
+          <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.55px; opacity: 0.9; margin-bottom: 7px;">Featured Residence</div>
+          <div style="font-family: 'Playfair Display', serif; font-size: 18px; line-height: 1.44;">The Coastal Sanctuary • ECR, Chennai</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section section-light">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <div class="section-title">
+        <div class="section-label">COMPREHENSIVE OFFERINGS</div>
+        <h2 class="section-heading">What We Create</h2>
+        <p class="section-desc">From architectural space planning to bespoke furniture joinery and comprehensive turnkey execution.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>Residential Interiors</h3>
+          <p>Complete spatial overhauls for villas, sea-facing penthouses, and apartments, harmonizing circulation, natural illumination, and tailored comfort.</p>
+          <div class="service-tag">CONCEPT TO HANDOVER</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🍳</div>
+          <h3>Modular Kitchens</h3>
+          <p>German and Italian engineered modular cabinetry engineered with anti-termite marine ply, porcelain slabs, and silent Blum motion hardware.</p>
+          <div class="service-tag">PRECISION ENGINEERING</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛏️</div>
+          <h3>Bedroom Interiors</h3>
+          <p>Intimate sanctuaries highlighting acoustic wall panels, concealed walk-in wardrobes, custom brass dressers, and restorative layered illumination.</p>
+          <div class="service-tag">ACOUSTIC & SOFT LUXURIES</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛋️</div>
+          <h3>Living Spaces</h3>
+          <p>Expansive dining and lounge suites built with hand-carved solid timbers, statement Italian marble consoles, and curated Indian art backdrops.</p>
+          <div class="service-tag">EDITORIAL GATHERING</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💼</div>
+          <h3>Office Interiors</h3>
+          <p>Executive suites, creative agency headquarters, and bespoke corporate studios calibrated for hybrid workflow, daylighting, and brand gravity.</p>
+          <div class="service-tag">COMMERCIAL AGILITY</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✓</div>
+          <h3>Turnkey Solutions</h3>
+          <p>Single-point accountability encompassing civil alterations, MEP coordination, HVAC, lighting schedules, and white-glove site delivery.</p>
+          <div class="service-tag">ZERO DISRUPTION</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="section section-cream">
+    <div class="portfolio-container">
+      <div class="portfolio-header">
+        <div>
+          <div class="section-label">CURATED WORKS</div>
+          <h2 class="section-heading">Spaces We've Transformed</h2>
+          <p class="section-desc">An architectural survey of signature residences and studios completed across Chennai's most vibrant enclaves.</p>
+        </div>
+        <div class="portfolio-filters">
+          <button class="filter-btn active">All</button>
+          <button class="filter-btn">Living Room</button>
+          <button class="filter-btn">Bedroom</button>
+          <button class="filter-btn">Kitchen</button>
+          <button class="filter-btn">Office</button>
+        </div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://thearchitectsdiary.com/wp-content/uploads/2025/01/interior-design-style-25-1024x689.jpg" alt="Casa Verde - Living Room" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="project-category">Living Room</div>
+          </div>
+          <div class="project-info">
+            <div class="project-location">BOAT CLUB ROAD, CHENNAI</div>
+            <h3 class="project-name">Casa Verde</h3>
+            <p class="project-desc">A 4,800 sq.ft contemporary duplex designed with biophilic courtyards and warm limestone surfaces.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDIVhOcrAyfNRwnAPttuBCIHe0s_Zv_2BPIcfouCYtdyV4Quwm2qhBtgE&s=10" alt="Urban Haven - Bedroom" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="project-category">Bedroom</div>
+          </div>
+          <div class="project-info">
+            <div class="project-location">ANNA NAGAR, CHENNAI</div>
+            <h3 class="project-name">Urban Haven</h3>
+            <p class="project-desc">Subtle layered textures and integrated climate conditioning for a quiet retreat from metropolitan density.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="The Oak Residence - Kitchen" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="project-category">Kitchen</div>
+          </div>
+          <div class="project-info">
+            <div class="project-location">POES GARDEN, CHENNAI</div>
+            <h3 class="project-name">The Oak Residence</h3>
+            <p class="project-desc">Concealed chef pantry, motorized German pull-outs, and architectural stone waterfall island.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIpAnIqutc4-KmZPaVeLzAmmbdzB1K5toPG_ke45iikw&s" alt="Serene Villa - Living Room" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="project-category">Living Room</div>
+          </div>
+          <div class="project-info">
+            <div class="project-location">ECR, CHENNAI</div>
+            <h3 class="project-name">Serene Villa</h3>
+            <p class="project-desc">Coastline-facing expansive private villa highlighting cross-ventilation and earthen mineral plaster.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://assets.executivecentre.com/assets/Banner-Product-PrivateOffice.jpg" alt="Axis Workspace - Office" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="project-category">Office</div>
+          </div>
+          <div class="project-info">
+            <div class="project-location">NUNGAMBAKKAM, CHENNAI</div>
+            <h3 class="project-name">Axis Workspace</h3>
+            <p class="project-desc">Sophisticated 6,000 sq.ft hybrid corporate office emphasizing acoustic isolation and calm focus.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR99HcNALM_Qi9Z4qVysVqimcGYoKE-3osp5qjWzMH11w&s=10" alt="Pearl Apartment - Bedroom" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="project-category">Bedroom</div>
+          </div>
+          <div class="project-info">
+            <div class="project-location">BESANT NAGAR, CHENNAI</div>
+            <h3 class="project-name">Pearl Apartment</h3>
+            <p class="project-desc">Airy residential renovation with custom cane joinery and tailored storage efficiency.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="section section-light">
+    <div class="timeline-container">
+      <div class="section-title">
+        <div class="section-label">THE METHODOLOGY</div>
+        <h2 class="section-heading">From Idea to Reality</h2>
+        <p class="section-desc">A deliberate, structured journey that keeps you in command without any construction stress.</p>
+      </div>
+      <div class="timeline-steps">
+        <div class="timeline-step">
+          <div class="step-icon">🔍</div>
+          <div class="step-number">01</div>
+          <h3 class="step-name">Discover</h3>
+          <p class="step-desc">In-depth consultation at your site or our studio to map lifestyle rituals, aesthetic preferences, and budget parameters.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="step-icon">✏️</div>
+          <div class="step-number">02</div>
+          <h3 class="step-name">Design</h3>
+          <p class="step-desc">Development of space layouts, high-fidelity 3D photorealistic walkthroughs, and bespoke furniture concepts.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="step-icon">🎨</div>
+          <div class="step-number">03</div>
+          <h3 class="step-name">Refine</h3>
+          <p class="step-desc">Curated material tactile boards, veneer grain selection, stone approval, and transparent BOQ price finalization.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="step-icon">🔨</div>
+          <div class="step-number">04</div>
+          <h3 class="step-name">Build</h3>
+          <p class="step-desc">Rigorous site execution overseen by dedicated project engineers with weekly digital photographic updates.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="step-icon">🌟</div>
+          <div class="step-number">05</div>
+          <h3 class="step-name">Reveal</h3>
+          <p class="step-desc">Deep sanitization, precision styling, defect-liability sign-off, and handover of your fully realized space.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Pillars Section (About) -->
+  <section id="about" class="section section-cream">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <div class="section-title">
+        <div class="section-label">THE STUDIO DISTINCTION</div>
+        <h2 class="section-heading">Why Choose NovaNest?</h2>
+        <p class="section-desc">Our standards ensure longevity, refined detailing, and absolute peace of mind.</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">✨</div>
+          <div class="pillar-content">
+            <h3>Personalized Design</h3>
+            <p>No cookie-cutter templates. Every layout, millwork groove, and light fixture is crafted to honor your family's routine.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🔐</div>
+          <div class="pillar-content">
+            <h3>Transparent Process</h3>
+            <p>Unambiguous itemized bill-of-quantities with zero hidden escalations. You approve every cost prior to manufacturing.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">💎</div>
+          <div class="pillar-content">
+            <h3>Quality Materials</h3>
+            <p>BWP grade marine plywood, solid Burmese teak, Hafele/Blum hardware, and non-toxic Italian water-based finishes.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🎯</div>
+          <div class="pillar-content">
+            <h3>End-to-End Management</h3>
+            <p>From architectural drawings and demolition to acoustic treatments and art curation—managed by one team.</p>
+          </div>
+        </div>
+        <div class="pillar-card" style="grid-column: 2 / 4;">
+          <div class="pillar-icon">🔍</div>
+          <div class="pillar-content">
+            <h3>Attention to Detail</h3>
+            <p>Shadow gap reveals, mitered 45-degree stone joints, flush architectural skirting, and hidden storage seamlessly aligned with your home's geometry.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="section section-light">
+    <div class="testimonials-container">
+      <div class="section-title">
+        <div class="section-label">CLIENT TESTIMONIALS</div>
+        <h2 class="section-heading">What Our Clients Say</h2>
+        <p class="section-desc">Real stories from homeowners and business proprietors across Chennai.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div>
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-text">"NovaNest transformed our coastal villa in ECR into an architectural masterpiece. The natural light flows naturally and the custom teak joinery is flawless. They completed it two weeks ahead of schedule."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-name">Dr. Ananya & Senthil Kumar</div>
+            <div class="author-title">Villa Owners, East Coast Road (ECR)</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div>
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-text">"Designing an executive office in Nungambakkam requires balancing elegance with strict acoustics. NovaNest handled everything turnkey. Our clients constantly compliment the serene atmosphere."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-name">Karthik Raghavan</div>
+            <div class="author-title">Managing Partner, Axis Advisory, Nungambakkam</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div>
+            <div class="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-text">"What won us over was the transparency. The itemized BOQ was accurate to the rupee. Our 3-BHK apartment in Poes Garden now feels twice as large and deeply grounded. Absolutely top tier."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-name">Meenakshi & Rajesh Iyer</div>
+            <div class="author-title">Homeowners, Poes Garden, Chennai</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <div class="cta-banner">
+    <h2>Ready to Transform Your Space?</h2>
+    <p>Begin your design dialogue today. Visit our Poes Garden studio or invite our lead architects to your site for an initial spatial assessment.</p>
+    <button class="btn btn-primary" style="margin-top: 16px;" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Book an Initial Consultation</button>
+  </div>
+
+  <!-- Contact Section with Form -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="section-label">START THE CONVERSATION</div>
+        <h2>Let's Talk About Your<br>Space</h2>
+        <p class="section-desc" style="margin-top: 12px; margin-bottom: 32px;">Whether contemplating a ground-up residence or an interior restoration, our team brings clarity, tactility, and meticulous execution.</p>
+        
+        <div class="contact-details">
+          <div class="detail-item">
+            <div class="detail-icon"></div>
+            <div class="detail-content">
+              <h4>Studio Chennai</h4>
+              <p>18/4 Kasturi Ranga Road, Poes Garden, Alwarpet, Chennai, Tamil Nadu 600018</p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon"></div>
+            <div class="detail-content">
+              <h4>Direct Line</h4>
+              <p>+91 (044) 2815 9900 / +91 98400 12345</p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon"></div>
+            <div class="detail-content">
+              <h4>Inquiries</h4>
+              <p>design@novanestinteriors.com</p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon"></div>
+            <div class="detail-content">
+              <h4>Studio Hours</h4>
+              <p>Monday to Saturday: 10:00 AM – 7:00 PM (By Appointment)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" id="consultationForm">
+        <div id="formMessage" class="form-message"></div>
+
+        <div id="formFields">
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-input" id="name" name="name" placeholder="e.g. Radhika Sundaram" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-input" id="email" name="email" placeholder="name@domain.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" class="form-input" id="phone" name="phone" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Chennai Location / Enclave *</label>
+            <input type="text" class="form-input" id="location" name="location" placeholder="e.g. Adyar, Anna Nagar, ECR, OMR" required>
+          </div>
+        </div>
+
+        <div class="form-row-3">
+          <div class="form-group">
+            <label class="form-label">Project Type</label>
+            <select class="form-select" id="projectType" name="projectType">
+              <option value="Complete Residence">Complete Residence</option>
+              <option value="Partial Interiors">Partial Interiors</option>
+              <option value="Kitchen Only">Kitchen Only</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Property Type</label>
+            <select class="form-select" id="propertyType" name="propertyType">
+              <option value="Independent Villa">Independent Villa</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Duplex">Duplex</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Target Budget</label>
+            <select class="form-select" id="budget" name="budget">
+              <option value="₹25 Lakhs – ₹50 Lakhs">₹25 Lakhs – ₹50 Lakhs</option>
+              <option value="₹50 Lakhs – ₹1 Crore">₹50 Lakhs – ₹1 Crore</option>
+              <option value="₹1 Crore – ₹2 Crore">₹1 Crore – ₹2 Crore</option>
+              <option value="₹2 Crore+">₹2 Crore+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Preferred Contact Method</label>
+          <div class="form-radio">
+            <input type="radio" id="contactPhone" name="contactMethod" value="Phone Call" checked>
+            <label for="contactPhone">Phone Call</label>
+          </div>
+          <div class="form-radio">
+            <input type="radio" id="contactWhatsapp" name="contactMethod" value="WhatsApp">
+            <label for="contactWhatsapp">WhatsApp</label>
+          </div>
+          <div class="form-radio">
+            <input type="radio" id="contactStudio" name="contactMethod" value="Studio Meeting">
+            <label for="contactStudio">Studio Meeting</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Project Details & Notes</label>
+          <textarea class="form-textarea" id="projectDetails" name="projectDetails" maxlength="800" placeholder="Briefly describe your space, timelines, and architectural aspirations..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit" id="submitBtn">Submit Consultation Request →</button>
+        </div>
+
+        <div id="formSuccess" class="form-success" role="status" aria-live="polite">
+          <div class="success-check">✓</div>
+          <h3 class="success-title">Request Received</h3>
+          <p class="success-text" id="successText"></p>
+          <div class="ref-box">
+            <div class="ref-label">Your Reference ID</div>
+            <div class="ref-id" id="refIdText">—</div>
+            <button type="button" class="ref-copy" id="copyRefBtn">Copy ID</button>
+          </div>
+          <p class="success-note">Please keep this ID. Quote it when you call, WhatsApp or visit the studio so we can find your request instantly.</p>
+          <button type="button" class="btn-link" id="newRequestBtn">Submit another request</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Web App URL from Google Apps Script (Deploy > Manage deployments)
+    const APPSCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzG9O0VKd8_R4YoNX86kLJTeA1UU9csQjkov-A1UYuRokiXBNMpC69tV_3qu_dQwObi/exec';
+
+    const form = document.getElementById('consultationForm');
+    const messageEl = document.getElementById('formMessage');
+    const fieldsEl = document.getElementById('formFields');
+    const successEl = document.getElementById('formSuccess');
+    const submitBtn = document.getElementById('submitBtn');
+    const refIdEl = document.getElementById('refIdText');
+    const copyBtn = document.getElementById('copyRefBtn');
+    const newBtn = document.getElementById('newRequestBtn');
+    const SUBMIT_LABEL = submitBtn.textContent;
+
+    // Reference ID such as NN-261004-7K3FQ  (NN + date + 5 characters, no confusing 0/O/1/I)
+    function makeRefId() {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      const now = new Date();
+      const date = String(now.getFullYear()).slice(-2) +
+        String(now.getMonth() + 1).padStart(2, '0') +
+        String(now.getDate()).padStart(2, '0');
+      const rnd = new Uint32Array(5);
+      if (window.crypto && window.crypto.getRandomValues) {
+        window.crypto.getRandomValues(rnd);
+      } else {
+        for (let i = 0; i < 5; i++) rnd[i] = Math.floor(Math.random() * 4294967296);
+      }
+      let tail = '';
+      for (let i = 0; i < 5; i++) tail += chars.charAt(rnd[i] % chars.length);
+      return 'NN-' + date + '-' + tail;
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      hideMessage();
+
+      const val = function (field) { return form.elements[field].value.trim(); };
+      const checked = form.querySelector('input[name="contactMethod"]:checked');
+      const data = {
+        name: val('name'),
+        email: val('email'),
+        phone: val('phone'),
+        location: val('location'),
+        projectType: val('projectType'),
+        propertyType: val('propertyType'),
+        budget: val('budget'),
+        contactMethod: checked ? checked.value : '',
+        projectDetails: val('projectDetails')
+      };
+
+      if (!data.name || !data.email || !data.phone || !data.location) {
+        showError('Please fill in all required fields (Name, Email, Phone, Location)');
+        return;
+      }
+      if (!isValidEmail(data.email)) {
+        showError('Please enter a valid email address');
+        return;
+      }
+      if (!isValidPhone(data.phone)) {
+        showError('Please enter a valid phone number');
+        return;
+      }
+
+      const refId = makeRefId();
+      data.refId = refId;
+      const url = APPSCRIPT_URL + '?' + new URLSearchParams(data);
+
+      setSending(true);
+      fetch(url, { method: 'GET', mode: 'no-cors' })
+        .then(function () { showSuccess(data.name, refId); })
+        .catch(function () { showError('We could not send your request. Please check your internet connection and try again.'); });
+    });
+
+    function setSending(on) {
+      submitBtn.disabled = on;
+      submitBtn.textContent = on ? 'Sending…' : SUBMIT_LABEL;
+    }
+
+    function hideMessage() {
+      messageEl.textContent = '';
+      messageEl.className = 'form-message';
+      messageEl.style.display = 'none';
+    }
+
+    function showSuccess(name, refId) {
+      setSending(false);
+      hideMessage();
+      const first = name ? name.split(' ')[0] : '';
+      document.getElementById('successText').textContent =
+        'Thank you' + (first ? ', ' + first : '') + '. Our team will get in touch with you shortly.';
+      refIdEl.textContent = refId;
+      form.reset();
+      fieldsEl.style.display = 'none';
+      successEl.style.display = 'block';
+      successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function showError(message) {
+      setSending(false);
+      messageEl.textContent = '✗ ' + message;
+      messageEl.className = 'form-message error';
+      messageEl.style.display = 'block';
+      messageEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    copyBtn.addEventListener('click', function () {
+      const text = refIdEl.textContent;
+      const done = function () {
+        copyBtn.textContent = 'Copied ✓';
+        setTimeout(function () { copyBtn.textContent = 'Copy ID'; }, 2000);
+      };
+      const fallback = function () {
+        const t = document.createElement('textarea');
+        t.value = text;
+        t.style.position = 'fixed';
+        t.style.opacity = '0';
+        document.body.appendChild(t);
+        t.select();
+        try { document.execCommand('copy'); done(); } catch (err) { /* user can select the ID by hand */ }
+        document.body.removeChild(t);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done).catch(fallback);
+      } else {
+        fallback();
+      }
+    });
+
+    newBtn.addEventListener('click', function () {
+      successEl.style.display = 'none';
+      fieldsEl.style.display = 'block';
+      fieldsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function isValidPhone(phone) {
+      return /^[\d\s\-\+\(\)]{10,}$/.test(phone.replace(/\s/g, ''));
+    }
+  </script>
+
+  </main>
+
+</body>
+</html>
